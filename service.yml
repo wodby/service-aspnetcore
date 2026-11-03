@@ -1,0 +1,27 @@
+name: aspnetcore
+type: service
+from: dotnet
+fromVersionConstraint: "^1.0.0"
+fromVersion: "1.0.0"
+guidance: GUIDANCE.md
+title: ASP.NET Core
+labels:
+- aspnetcore
+- dotnet
+- csharp
+
+env:
+# Wodby's gateway terminates TLS and sets X-Forwarded-For and X-Forwarded-Proto. ASP.NET Core
+# reads this variable and applies those headers, so request schemes, redirects and client
+# addresses are the visitor's.
+- name: ASPNETCORE_FORWARDEDHEADERS_ENABLED
+  value: 'true'
+
+build:
+  dockerfile: Dockerfile
+  connect: true
+  boilerplates:
+  - name: aspnetcore
+    title: ASP.NET Core boilerplate
+    repo: https://github.com/wodby/aspnetcore-boilerplate
+    branch: main
