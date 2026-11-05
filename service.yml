@@ -2,7 +2,7 @@ name: aspnetcore
 type: service
 from: dotnet
 fromVersionConstraint: "^1.0.0"
-fromVersion: "1.0.0"
+fromVersion: "1.1.0"
 guidance: GUIDANCE.md
 title: ASP.NET Core
 labels:
